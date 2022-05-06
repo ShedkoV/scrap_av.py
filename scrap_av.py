@@ -1,9 +1,24 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass, asdict, field
 from typing import Dict
 import json
 import codecs
+from uuid import uuid4
 import requests
 
+@dataclass
+class CarInfo:
+    brand: str
+    model: str
+    generation: str
+    year: str
+    engine_capacity: str
+    fuel_type: str
+    transmission_type: str
+    price_usd: str
+    price_byn: str
+    article_url: str
+    car_id: uuid4 = field(default_factory=uuid4)
 
 class ScrapperFacade(ABC):
 
